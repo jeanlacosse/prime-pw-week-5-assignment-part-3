@@ -52,16 +52,17 @@ console.log(findByArtist('Nirvana'))
 function search(artist, year, trackName) {
     let results = [];
     for (object of collection){
-        if (artist === object.artist && year === object.yearPublished && trackName === object.tracks){
-        results.push(artist, year, trackName);
-        } else if (artist === '' || year === '' || trackName === '') {
-            return collection.title;
+        if (artist === object.artist && year === object.yearPublished && trackName === object.tracks[0]){
+        results.push(object);
         } 
+        // else if (artist === '' || year === '' || trackName === '') {
+        //     return collection.title;
+        // } 
     } 
     return results;
 }
 
 console.log(search('Spoon', 2022, 'My Babe: 3:36'))
 console.log(search('Spoon', 2021)) // returns empty array
-// I am unable to figure out how to return the collection of album titles when the arguments of search are empty
+
 
